@@ -57,4 +57,17 @@ public class Util {
 
         return hash;
     }
+
+
+
+    @UserFunction
+    @Description("abowman.util.hash2([values]) | computes the hash of all values in the list (order insensitive)")
+    public long hash2(@Name("values") List<Object> values) {
+        long hash = 31;
+        for (Object obj : values) {
+            hash = hash ^ (31 * obj.hashCode());
+        }
+
+        return hash;
+    }
 }
